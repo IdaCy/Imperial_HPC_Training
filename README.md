@@ -17,9 +17,9 @@ ssh -v [username]@login.hpc.imperial.ac.uk
 
 ## 2. Before anything
 
-(A) ```cd Imperial_HPC_Training```
+**(A) ```cd Imperial_HPC_Training```**
 
-(B) Start the container setup - this will take a while
+**(B) Start the container setup - this will take a while**
 ```
 nohup singularity build containers/imi_cont.sif containers/imi_cont.def > logs/imi_cont.log 2>&1 &
 ```
@@ -29,9 +29,9 @@ nohup singularity build containers/imi_cont.sif containers/imi_cont.def > logs/i
 
 ## 4. Job scripts
 
-(A) PBS scripts in 'HPC' folder
+**(A) PBS scripts in 'HPC' folder**
    
-(B) Run your own adaption
+**(B) Run your own adaption**
 
 - #PBS definitions - -N required for name
 - ncpus for CPUs, ngpus for GPUs, mem for memory
@@ -55,22 +55,22 @@ Run a script in the environment!
 
 ## 😍 GPUS 🤑
 
-(A) Check out gpu_test
+**(A) Check out gpu_test**
 
 needed: ```conda install pytorch```  
 (because, no container yet)
 
-(B) Write a PBS script for it and submit
+**(B) Write a PBS script for it and submit**
 
 - submitting:   ```qsub [script_name].pbs```
 - tracking:     ```qstat -u $USER$```
-- queues:       ```qstat -Q (optionally: [qeue name])```
+- queues:       ```qstat -Q (optionally: [queue name])```
 - view status from logs/ folder!
 
-Queues:
+**Queues:**
 - they are assigned _automatically_ depending on the resources you request
 - you may decide to use a different one! inspected queues, found another one shorter? add "```#PBS -q [selected queue]```" to your PBS script top
 - only (relevant) GPU queue: **v1_gpu72**
 - other relevat queues: **v1_\*** (those with running scripts)
 
-(C) Run it in your container (uncomment and test it out)!
+**(C) Run it in your container (uncomment and test it out)!**
