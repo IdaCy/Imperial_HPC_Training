@@ -33,11 +33,24 @@ nohup singularity build containers/imi_cont.sif containers/imi_cont.def > logs/i
    
 **(B) Run your own adaption**
 
-- #PBS definitions - -N required for name
+**PBS definitions:**
+- -N required for name
 - ncpus for CPUs, ngpus for GPUs, mem for memory
 - walltime in HH:MM:SS
 - error logging with -e and output logging with -o
 - do not add comments into this section
+
+**Commands:**
+- submitting:   ```qsub [script_name].pbs```
+- tracking:     ```qstat -u $USER$```
+- queues:       ```qstat -Q (optionally: [queue name])```
+- view status from logs/ folder!
+
+**Queues:**
+- they are assigned _automatically_ depending on the resources you request
+- you may decide to use a different one! inspected queues, found another one shorter? add "```#PBS -q [selected queue]```" to your PBS script top
+- only (relevant) GPU queue: **v1_gpu72**
+- other relevat queues: **v1_\*** (those with running scripts)
 
 ## Virtualenvs on HPC
 
@@ -62,15 +75,6 @@ needed: ```conda install pytorch```
 
 **(B) Write a PBS script for it and submit**
 
-- submitting:   ```qsub [script_name].pbs```
-- tracking:     ```qstat -u $USER$```
-- queues:       ```qstat -Q (optionally: [queue name])```
-- view status from logs/ folder!
-
-**Queues:**
-- they are assigned _automatically_ depending on the resources you request
-- you may decide to use a different one! inspected queues, found another one shorter? add "```#PBS -q [selected queue]```" to your PBS script top
-- only (relevant) GPU queue: **v1_gpu72**
-- other relevat queues: **v1_\*** (those with running scripts)
+Only GPU queue we can use: **v1_gpu72**.
 
 **(C) Run it in your container (uncomment and test it out)!**
