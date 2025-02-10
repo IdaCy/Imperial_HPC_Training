@@ -83,7 +83,7 @@ Only GPU queue we can use: **v1_gpu72**.
 ## Additionals
 
 - getting files down:
-```scp -r [username]@login.hpc.imperial.ac.uk:/rds/general/user/$USER$/home/[what to download] /[where to put]```
+```scp -r [username]@login.hpc.imperial.ac.uk:/rds/general/user/[username]/home/[what to download] /[where to put]```
 
 - check node availability:
 ```pbsnodes -a | grep -B 10 -A 10 “state = free”```
