@@ -6,7 +6,9 @@ https://icl-rcs-user-guide.readthedocs.io/en/latest/
 Jupyter hub: https://icl-rcs-user-guide.readthedocs.io/en/latest/hpc/applications/guides/jupyter/
 
 ## 0. Get your folder up
+```
 rsync -av --exclude=".git" Imperial_HPC_Training [username]@login.hpc.imperial.ac.uk:~/
+```
 
 ## 1. Log in
 ```
