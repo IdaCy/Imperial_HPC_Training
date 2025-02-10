@@ -37,6 +37,7 @@ nohup singularity build containers/imi_cont.sif containers/imi_cont.def > logs/i
 - ncpus for CPUs, ngpus for GPUs, mem for memory
 - walltime in HH:MM:SS
 - error logging with -e and output logging with -o
+- do not add comments into this section
 
 ## Virtualenvs on HPC
 
@@ -63,7 +64,13 @@ needed: ```conda install pytorch```
 
 - submitting:   ```qsub [script_name].pbs```
 - tracking:     ```qstat -u $USER$```
-- queues:       ```qstat -Q (optionally: [qeue_name])```
+- queues:       ```qstat -Q (optionally: [qeue name])```
 - view status from logs/ folder!
+
+Queues:
+- they are assigned _automatically_ depending on the resources you request
+- you may inspect queues, find another one shorter, and decide for your own queue! add "```#PBS -q [selected queue]```"
+- only (relevant) GPU queue: v1_gpu72
+- other relevat queues: v1_* (those with running scripts)
 
 (C) Run it in your container (uncomment and test it out)!
