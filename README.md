@@ -77,4 +77,4 @@ needed: ```conda install pytorch```
 
 Only GPU queue we can use: **v1_gpu72**.
 
-**(C) Run it in your container (uncomment and test it out)!**
+**(C) Run it in your container** (uncomment and test it out) once it's complete!
