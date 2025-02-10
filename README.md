@@ -5,17 +5,19 @@ Sources:
 https://icl-rcs-user-guide.readthedocs.io/en/latest/
 Jupyter hub: https://icl-rcs-user-guide.readthedocs.io/en/latest/hpc/applications/guides/jupyter/
 
-Get your folder up:
+## 0. Get your folder up
 rsync -av --exclude=".git" Imperial_HPC_Training [username]@login.hpc.imperial.ac.uk:~/
 
 ## 1. Log in
+```
 ssh -v [username]@login.hpc.imperial.ac.uk
+```
 
 ## 2. Before anything
 
-(A) CD into this
+(A) ```cd Imperial_HPC_Training```
 
-(B) Start the container setup - this will take a whil
+(B) Start the container setup - this will take a while
 ```
 nohup singularity build containers/imi_cont.sif containers/imi_cont.def > logs/imi_cont.log 2>&1 &
 ```
@@ -26,6 +28,7 @@ nohup singularity build containers/imi_cont.sif containers/imi_cont.def > logs/i
 ## 4. Job scripts
 
 (A) PBS scripts in 'HPC' folder
+   
 (B) Run your own adaption
 
 - #PBS definitions - -N required for name
@@ -45,14 +48,14 @@ source ~/.bashrc
 conda activate hpcenv
 ```
 
-Run a script with the environment
+Run a script in the environment!
 
-# 😍 GPUS 🤑
+## 😍 GPUS 🤑
 
 (A) Check out gpu_test
 
-needed: ```conda install pytorch```
-(no container yet)
+needed: ```conda install pytorch```  
+(because, container yet)
 
 (B) Write a PBS script for it and submit
 
@@ -61,4 +64,4 @@ needed: ```conda install pytorch```
 - queues:       qstat -Q (optionally: [qeue_name])
 - view status from logs/ folder!
 
-(C) Run it in your container (uncomment and test out)
+(C) Run it in your container (uncomment and test it out)!
