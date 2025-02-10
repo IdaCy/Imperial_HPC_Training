@@ -1,6 +1,10 @@
 # Imperial_HPC_Training
 Training round for usage of HPC systems at Imperial - for the IMI research group.
 
+Sources:
+https://icl-rcs-user-guide.readthedocs.io/en/latest/
+Jupyter hub: https://icl-rcs-user-guide.readthedocs.io/en/latest/hpc/applications/guides/jupyter/
+
 Get your folder up:
 rsync -av --exclude=".git" Imperial_HPC_Training [username]@login.hpc.imperial.ac.uk:~/
 
