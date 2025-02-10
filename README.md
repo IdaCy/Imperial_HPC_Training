@@ -1,4 +1,4 @@
-# Imperial_HPC_Training
+# Imperial HPC Training
 Training round for usage of HPC systems at Imperial - for the IMI research group.
 
 Sources:
@@ -69,8 +69,8 @@ needed: ```conda install pytorch```
 
 Queues:
 - they are assigned _automatically_ depending on the resources you request
-- you may inspect queues, find another one shorter, and decide for your own queue! add "```#PBS -q [selected queue]```"
-- only (relevant) GPU queue: v1_gpu72
-- other relevat queues: v1_* (those with running scripts)
+- you may decide to use a different one! inspected queues, found another one shorter? add "```#PBS -q [selected queue]```" to your PBS script top
+- only (relevant) GPU queue: **v1_gpu72**
+- other relevat queues: **v1_\*** (those with running scripts)
 
 (C) Run it in your container (uncomment and test it out)!
