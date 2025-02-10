@@ -57,13 +57,13 @@ Run a script in the environment!
 (A) Check out gpu_test
 
 needed: ```conda install pytorch```  
-(because, container yet)
+(because, no container yet)
 
 (B) Write a PBS script for it and submit
 
-- submitting:   qsub [script_name].pbs 
-- tracking:     qstat -u $USER$
-- queues:       qstat -Q (optionally: [qeue_name])
+- submitting:   ```qsub [script_name].pbs```
+- tracking:     ```qstat -u $USER$```
+- queues:       ```qstat -Q (optionally: [qeue_name])```
 - view status from logs/ folder!
 
 (C) Run it in your container (uncomment and test it out)!
