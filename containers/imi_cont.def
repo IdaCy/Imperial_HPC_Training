@@ -1,0 +1,52 @@
+BootStrap: docker
+From: nvidia/cuda:12.1.1-cudnn8-devel-ubuntu22.04
+
+%post
+    # Update and install system dependencies
+    apt-get update
+    apt-get install -y --no-install-recommends \
+        python3 \
+        python3-pip \
+        git \
+        git-lfs
+
+    # Initialize Git LFS
+    git lfs install
+
+    # Upgrade pip
+    python3 -m pip install --no-cache-dir --upgrade pip
+
+    # Install PyTorch for CUDA 12.1 + Hugging Face Transformers and other common packages
+    # This uses the official PyTorch wheels with cu121 support.
+    # If PyTorch for cu121 is not yet available, check https://pytorch.org/get-started/locally/
+    python3 -m pip install --no-cache-dir \
+        torch --extra-index-url https://download.pytorch.org/whl/cu121 \
+        torchvision \
+        torchaudio \
+        transformers \
+        huggingface_hub \
+        accelerate \
+        pandas \
+        ipywidgets \
+        jupyter \
+        tqdm
+
+    # (Optional) Install additional mechanistic interpretability libraries if needed:
+    # e.g., circuitsvis, einops, etc.
+    # python3 -m pip install --no-cache-dir circuitsvis einops
+    
+    # Clean up
+    apt-get clean
+    rm -rf /var/lib/apt/lists/*
+
+%environment
+    # Set common environment variables
+    export LC_ALL=C
+    export LANG=C
+    # Ensure Python is in the PATH
+    export PATH=/usr/local/bin:$PATH
+
+%runscript
+    echo "Container for mechanistic interpretability + HPC usage."
+    echo "To run Python scripts, do something like:"
+    echo "    singularity exec mechinterp_cont.sif python my_script.py"

@@ -1,0 +1,23 @@
+#!/bin/bash
+#PBS -N job_name
+#PBS -l select=1:ncpus=4:mem=8gb
+#PBS -l walltime=00:30:00
+#PBS -o logs/job_name.out
+#PBS -e logs/job_name.err
+
+# Load Conda environment in PBS
+#source /rds/general/user/$USER$/home/anaconda3/etc/profile.d/conda.sh
+#conda activate hpcenv
+
+# Move to the working directory
+cd $PBS_O_WORKDIR
+
+echo "Starting..."
+
+python scripts/script_name.py
+
+# or - run in container
+#singularity exec --nv --writable-tmpfs containers/imi_cont.sif \
+#    python scripts/script_name.py
+
+echo "Completed."
