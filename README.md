@@ -90,3 +90,12 @@ Only GPU queue we can use: **v1_gpu72**.
 
 - submit chained on completion of other:
 ```qsub -W depend=afterok:573023 vqa_inference.pbs```
+
+- quota checks:
+```
+df -h ~
+df -h /rds/general/user/$USER$/home
+df -h /tmp
+df -h $TMPDIR
+```
+
