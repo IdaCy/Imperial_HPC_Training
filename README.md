@@ -78,3 +78,15 @@ needed: ```conda install pytorch```
 Only GPU queue we can use: **v1_gpu72**.
 
 **(C) Run it in your container** (uncomment and test it out) once it's complete!
+
+
+## Additionals
+
+- getting files down:
+```scp -r [username]@login.hpc.imperial.ac.uk:/rds/general/user/ifc24/home/[what to download] /[where to put]```
+
+- check node availability:
+```pbsnodes -a | grep -B 10 -A 10 “state = free”```
+
+- submit chained on completion of other:
+```qsub -W depend=afterok:573023 vqa_inference.pbs```
